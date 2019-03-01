@@ -5,6 +5,8 @@ class Dumper
     case name
     when :bbva
       Dumper::Bbva
+    when :consors
+      Dumper::Consors
     when :n26
       Dumper::N26
     when :fints
