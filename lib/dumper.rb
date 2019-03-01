@@ -27,7 +27,8 @@ class Dumper
       memo: memo(transaction),
       amount: amount(transaction),
       is_withdrawal: withdrawal?(transaction),
-      import_id: import_id(transaction)
+      import_id: SecureRandom.hex
+      ## import_id: import_id(transaction)
     )
   end
   # rubocop:enable Metrics/MethodLength
