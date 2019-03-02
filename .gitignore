@@ -2,3 +2,6 @@ export
 .cache
 last_imported
 config.yml
+trans.txt
+output.txt
+tx.txt
