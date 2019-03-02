@@ -2,7 +2,7 @@ class Dumper
   # Implements logic to fetch transactions via the Fints protocol for
   ## CONSORSBANK ##
   # and implements methods that convert the response to meaningful data.
-  class Consors < Dumper
+  class Fintsb < Dumper
     require 'ruby_fints'
     require 'digest/md5'
 

@@ -5,8 +5,8 @@ class Dumper
     case name
     when :bbva
       Dumper::Bbva
-    when :consors
-      Dumper::Consors
+    when :fintsb
+      Dumper::Fintsb
     when :n26
       Dumper::N26
     when :fints
@@ -18,6 +18,8 @@ class Dumper
 
   # rubocop:disable Metrics/MethodLength
   def to_ynab_transaction(transaction)
+    # Debug
+    # File.write('./trans.txt', JSON.pretty_generate(transaction), mode: 'a')
     return nil if date(transaction) > Date.today
     ::TransactionCreator.call(
       account_id: account_id,
