@@ -12,6 +12,9 @@ transactions =
     account.transactions
   end.flatten!
 
+# Debug
+#File.write('./output.txt', JSON.pretty_generate(transactions), mode: 'a')
+
 # Importing transactions
 budget_id = Settings.all['ynab'].fetch('budget_id')
 access_token = Settings.all['ynab'].fetch('access_token')
