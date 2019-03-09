@@ -5,12 +5,10 @@ class Dumper
     case name
     when :bbva
       Dumper::Bbva
-    when :fintsb
-      Dumper::Fintsb
-    when :n26
-      Dumper::N26
     when :fints
       Dumper::Fints
+    when :n26
+      Dumper::N26
     else
       raise "Dumper \"#{name}\" not supported."
     end
@@ -18,8 +16,6 @@ class Dumper
 
   # rubocop:disable Metrics/MethodLength
   def to_ynab_transaction(transaction)
-    # Debug
-    # File.write('./trans.txt', JSON.pretty_generate(transaction), mode: 'a')
     return nil if date(transaction) > Date.today
     ::TransactionCreator.call(
       account_id: account_id,
@@ -31,7 +27,6 @@ class Dumper
       memo: memo(transaction),
       amount: amount(transaction),
       is_withdrawal: withdrawal?(transaction),
-      ## import_id: SecureRandom.hex + "01"
       import_id: import_id(transaction)
     )
   end
