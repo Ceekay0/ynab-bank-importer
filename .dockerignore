@@ -15,3 +15,7 @@ last_imported
 .rubocop_todo.yml
 .rspec
 spec
+
+trans.txt
+output.txt
+tx.txt
