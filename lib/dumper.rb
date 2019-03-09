@@ -5,10 +5,10 @@ class Dumper
     case name
     when :bbva
       Dumper::Bbva
-    when :fints
-      Dumper::Fints
     when :n26
       Dumper::N26
+    when :fints
+      Dumper::Fints
     else
       raise "Dumper \"#{name}\" not supported."
     end
