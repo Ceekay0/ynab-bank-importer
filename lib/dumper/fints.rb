@@ -35,7 +35,12 @@ class Dumper
     end
 
     def payee_name(transaction)
-      parse_transaction_at(32, transaction).try(:strip)
+      if transaction["name"]
+        data = transaction["name"]
+      else
+        data = parse_transaction_at(32, transaction).try(:strip)
+      end
+      data
     end
 
     def payee_iban(transaction)
@@ -43,7 +48,12 @@ class Dumper
     end
 
     def memo(transaction)
-      parse_transaction_at(20, transaction).try(:strip)
+      if transaction.sepa["SVWZ"]
+        data = transaction.sepa["SVWZ"] + ' (' + transaction.description + ')'
+      else
+        data = transaction.information + ' (' + transaction.description + ')'
+      end
+      data
     end
 
     def amount(transaction)
