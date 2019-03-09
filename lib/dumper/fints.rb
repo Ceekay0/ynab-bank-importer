@@ -34,10 +34,6 @@ class Dumper
       transaction.entry_date || transaction.date
     end
 
-    #def payee_name(transaction)
-     # transaction.name
-    #end
-
     def payee_name(transaction)
       if transaction["name"]
         data = transaction["name"]
