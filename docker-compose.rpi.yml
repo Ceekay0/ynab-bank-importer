@@ -1,7 +1,7 @@
 version: "2"
 services:
   importer:
-    image: schurig/ynab-bank-importer:latest-rpi
+    image: ceekay0/ynab-rpi:testing
     volumes:
       - ./config.yml:/usr/app/config.yml
     command: "ruby /usr/app/run.rb"
